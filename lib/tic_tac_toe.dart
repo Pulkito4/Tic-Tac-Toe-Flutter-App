@@ -64,7 +64,6 @@ class _TicTacToeState extends State<TicTacToe> {
     }
 
     if (emptyCells.isNotEmpty) {
-
       int randomCell = emptyCells[Random().nextInt(emptyCells.length)];
       data[randomCell] = (widget.choice == "X") ? "0" : "X";
       (widget.choice == "X") ? turnX = true : turnX = false;
@@ -165,6 +164,9 @@ class _TicTacToeState extends State<TicTacToe> {
                                               //  play again login here // redirect to the home screen
                                               widget.onTapFn(widget.choice,
                                                   widget.playMode);
+                                              Navigator.of(context,
+                                                      rootNavigator: true)
+                                                  .pop();
                                             },
                                             style: const ButtonStyle(
                                                 padding: WidgetStatePropertyAll(
@@ -248,7 +250,9 @@ class _TicTacToeState extends State<TicTacToe> {
                                               //  play again login here // redirect to the home screen
                                               widget.onTapFn(widget.choice,
                                                   widget.playMode);
-                                              Navigator.pop(context);
+                                              Navigator.of(context,
+                                                      rootNavigator: true)
+                                                  .pop();
                                             },
                                             style: const ButtonStyle(
                                                 padding: WidgetStatePropertyAll(
